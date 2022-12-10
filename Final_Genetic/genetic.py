@@ -24,6 +24,9 @@ def main():
     table = extractAnalysis('ACPs_Breast_cancer.csv', 'output_breast_cancer.csv')
     outputCSV('output_breast_cancer_genetic.csv', table)
     
+    table = extractAnalysis('ACPs_Lung_cancer.csv', 'output_lung_cancer.csv')
+    outputCSV('output_lung_cancer_genetic.csv', table)
+    
     #createBellCurve(sequenceValuesBreastCancer, 'Breast Cancer')
     #sequenceValuesLungCancer = extractAnalysis('ACPs_Lung_cancer.csv', 'output_lung_cancer.csv')
     
