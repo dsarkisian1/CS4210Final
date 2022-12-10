@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 
 NUMBEROFROWS = 50
 CROSSOVER = 0.5
+DEBUG = False
 
 def main():
 
@@ -71,7 +72,7 @@ def createDecimalBinaryCode(table):
         tempDec = []
         tempBinary = []
         
-    print(binaryTable)
+    #print(binaryTable)
     #print(decimalValues)
 
 
@@ -111,10 +112,21 @@ def mutate(binaryTable, decimalValues):
 def crossover(gene1, gene2):
 
     randomColumn = random.randrange(0, 4)
+    
+    if DEBUG:
+        print("Random Column: " + str(randomColumn))
+        print("Before Crossover: ")
+        print("Gene 1: " + str(gene1))
+        print("Gene 2: " + str(gene2))
+    
         
-    temp = gene1[randomColumn]
-    gene1[randomColumn] = gene2[randomColumn]
-    gene2[randomColumn] = temp
+        temp = gene1[randomColumn]
+        gene1[randomColumn] = gene2[randomColumn]
+        gene2[randomColumn] = temp
+    
+        print("After Crossover: ")
+        print("Gene 1: " + str(gene1))
+        print("Gene 2: " + str(gene2))
   
     
 def findNextHighestFitness(fitnessTable):
@@ -136,6 +148,13 @@ def fitness(binaryTable):
                 if row[4] != row2[4]:
                     accuracyTemp += 1
         fitnessTable.append(accuracyTemp)
+        
+    if DEBUG:
+        print("Fitness Table: ")
+        print(fitnessTable)
+        print("Max Fitness: " + str(max(fitnessTable)))
+        print()
+   
         
     return fitnessTable
     
